@@ -15,7 +15,7 @@ export default async function Home(props: PageProps) {
     );
   }
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div className="w-screen h-screen flex justify-center items-center p-7">
       <div
         className="relative w-full max-w-4xl aspect-video"
         dangerouslySetInnerHTML={{
