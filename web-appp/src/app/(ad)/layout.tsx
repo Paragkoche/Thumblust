@@ -27,20 +27,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
+        {/* <Script
           type="text/javascript"
           src="//pl26702585.profitableratecpm.com/07/5c/3d/075c3ded807656e7ab17f0a998d9d131.js"
-        ></Script>
+        ></Script> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <BG>{children}</BG>
 
-        <Script
+        <script
           type="text/javascript"
           src="//pl26702625.profitableratecpm.com/2c/0b/5e/2c0b5ecfaa59461fc2f882a1609444eb.js"
-        ></Script>
+        ></script>
       </body>
     </html>
   );
