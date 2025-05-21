@@ -1,5 +1,5 @@
 import { getData } from "@/utils/data-fetch";
-//ok
+//ok <>
 interface PageProps {
   params: Promise<{ id: string }>;
 }
