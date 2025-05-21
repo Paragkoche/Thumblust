@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import BG from "@/components/bg";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,20 +27,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
+        <Script
           type="text/javascript"
           src="//pl26702585.profitableratecpm.com/07/5c/3d/075c3ded807656e7ab17f0a998d9d131.js"
-        ></script>
+        ></Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <BG>{children}</BG>
 
-        <script
+        <Script
           type="text/javascript"
           src="//pl26702625.profitableratecpm.com/2c/0b/5e/2c0b5ecfaa59461fc2f882a1609444eb.js"
-        ></script>
+        ></Script>
       </body>
     </html>
   );

@@ -1,4 +1,3 @@
-import { CSRcreateClient } from "@/lib/csr.supabase";
 import { getData } from "@/utils/data-fetch";
 
 interface PageProps {
@@ -20,7 +19,7 @@ export default async function Home(props: PageProps) {
       <div
         className="relative w-full max-w-4xl aspect-video"
         dangerouslySetInnerHTML={{
-          __html: data?.html!,
+          __html: data?.html ?? "",
         }}
       ></div>
     </div>
