@@ -35,16 +35,12 @@ export default function RootLayout({
           name="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
           content="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
         />
+        <Script type="text/javascript" src="/add.js"></Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <BG>{children}</BG>
-
-        <Script
-          type="text/javascript"
-          src="//pl26702625.profitableratecpm.com/2c/0b/5e/2c0b5ecfaa59461fc2f882a1609444eb.js"
-        ></Script>
       </body>
     </html>
   );
