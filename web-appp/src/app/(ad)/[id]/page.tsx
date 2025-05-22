@@ -12,7 +12,7 @@ export default async function Home(props: PageProps) {
     return (
       <div className="w-screen h-screen flex justify-center items-center">
         <VideoPlayer
-          videoSrc="/sample-video.mp4"
+          videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
           poster="/poster.jpg"
           vastTagUrl="https://snarling-awareness.com/d/mmF.zmdwGmN-vAZ/GLUE/DeQmK9PuuZkUAlVk/PTTIYcztN-zsQ/0XNPDkUmtbNojiMJ3LNPDoQN0/N/gl" // Replace with your VAST URL
         />
