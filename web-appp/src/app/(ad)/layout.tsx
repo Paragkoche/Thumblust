@@ -36,12 +36,13 @@ export default function RootLayout({
           content="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
         />
         <meta name="referrer" content="no-referrer-when-downgrade" />
-        <Script type="text/javascript" src="/add.js"></Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <BG>{children}</BG>
+
+        <Script type="text/javascript" src="/add.js"></Script>
       </body>
     </html>
   );
