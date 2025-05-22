@@ -31,6 +31,10 @@ export default function RootLayout({
           type="text/javascript"
           src="//pl26702585.profitableratecpm.com/07/5c/3d/075c3ded807656e7ab17f0a998d9d131.js"
         ></Script> */}
+        <meta
+          name="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
+          content="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
