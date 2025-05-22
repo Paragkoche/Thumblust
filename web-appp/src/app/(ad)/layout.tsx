@@ -35,6 +35,7 @@ export default function RootLayout({
           name="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
           content="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
         />
+        <meta name="referrer" content="no-referrer-when-downgrade" />
         <Script type="text/javascript" src="/add.js"></Script>
       </head>
       <body
