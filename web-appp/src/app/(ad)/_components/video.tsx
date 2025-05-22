@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 "use client"; // for Next.js 13+ if using app directory
 
 import React, { useEffect, useRef } from "react";
