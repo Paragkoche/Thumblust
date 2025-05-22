@@ -1,4 +1,5 @@
 import { getData } from "@/utils/data-fetch";
+import VideoPlayer from "../_components/video";
 //ok <>
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -10,7 +11,11 @@ export default async function Home(props: PageProps) {
   if (!data) {
     return (
       <div className="w-screen h-screen flex justify-center items-center">
-        No data
+        <VideoPlayer
+          videoSrc="/sample-video.mp4"
+          poster="/poster.jpg"
+          vastTagUrl="https://snarling-awareness.com/d/mmF.zmdwGmN-vAZ/GLUE/DeQmK9PuuZkUAlVk/PTTIYcztN-zsQ/0XNPDkUmtbNojiMJ3LNPDoQN0/N/gl" // Replace with your VAST URL
+        />
       </div>
     );
   }
