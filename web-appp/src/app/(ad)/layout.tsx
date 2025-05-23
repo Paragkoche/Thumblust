@@ -35,6 +35,8 @@ export default function RootLayout({
           name="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
           content="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
         />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script>
         <meta name="referrer" content="no-referrer-when-downgrade" />
       </head>
       <body
