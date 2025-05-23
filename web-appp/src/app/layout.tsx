@@ -59,6 +59,10 @@ export default function RootLayout({
           name="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
           content="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
         />
+        <meta
+          name="6a97888e-site-verification"
+          content="babdc83e2d0479d3e4c28717382562b2"
+        ></meta>
         <meta name="referrer" content="no-referrer-when-downgrade" />
       </head>
       <body
