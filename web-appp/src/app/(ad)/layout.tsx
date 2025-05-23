@@ -27,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <Script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></Script>
         {/* <Script
           type="text/javascript"
           src="//pl26702585.profitableratecpm.com/07/5c/3d/075c3ded807656e7ab17f0a998d9d131.js"

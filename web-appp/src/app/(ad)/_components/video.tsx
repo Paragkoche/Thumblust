@@ -30,6 +30,7 @@ const VideoPlayer = ({ videoSrc, vastTagUrl, poster }: any) => {
 
       player.ready(() => {
         player.ima.initializeAdDisplayContainer();
+        player.play();
       });
 
       playerRef.current = player;
