@@ -14,7 +14,7 @@ export default async function Home(props: PageProps) {
         <VideoPlayer
           videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
           poster="/poster.jpg"
-          vastTagUrl="https://snarling-awareness.com/d/mTFBzCd.GJN/vnZTGVUs/Ee/mN9RuzZ_Uhlsk-PFTEYRzsNSzGQ/0eNaDeUot_NCjmMr3wN/DZQh0GNLisZrssa/WC1NpUdVDf0ixx" // Replace with your VAST URL
+          vastTagUrl="https://s.magsrv.com/v1/vast.php?idzone=5620820" // Replace with your VAST URL
         />
       </div>
     );
