@@ -153,18 +153,15 @@ const VideoPlayer = ({ poster, url }: VideoPlayerProps) => {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    (videoRef.current as any).addEventListener("touchstart", handleTouchStart);
-    (videoRef.current as any).addEventListener("touchend", handleTouchEnd);
+    videoRef.current!.addEventListener("touchstart", handleTouchStart);
+    videoRef.current!.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      (videoRef.current as any).removeEventListener(
-        "touchstart",
-        handleTouchStart
-      );
-      (videoRef.current as any).removeEventListener("touchend", handleTouchEnd);
+      videoRef.current!.removeEventListener("touchstart", handleTouchStart);
+      videoRef.current!.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [playerRef.current]);
+  }, [playerRef.current, videoRef.current]);
   useEffect(() => {
     if (playerRef.current) {
       if (videoPlayOrPause) {
