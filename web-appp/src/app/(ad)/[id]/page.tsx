@@ -1,6 +1,6 @@
 import { getData } from "@/utils/data-fetch";
 import VideoPlayer from "../_components/video";
-import Script from "next/script";
+
 //ok <>
 interface PageProps {
   params: Promise<{ id: string }>;
