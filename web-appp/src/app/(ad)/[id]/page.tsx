@@ -19,7 +19,7 @@ export default async function Home(props: PageProps) {
     <div className="w-screen h-screen flex justify-center items-center p-7">
       <VideoPlayer
         videoSrc={
-          "https://sh9f.biggsupndfun.sbs/v4/mf/jci9ve/index-f1-v1-a1.txt"
+          "https://sh9f.biggsupndfun.sbs/v4/mf/kdbbed/index-f1-v1-a1.txt"
         }
         poster=""
         vastTagUrl=""
