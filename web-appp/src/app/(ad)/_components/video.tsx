@@ -21,7 +21,7 @@ const VideoPlayer = ({ videoSrc, vastTagUrl, poster }: any) => {
         width: 640,
         height: 360,
         poster: poster,
-        sources: [{ src: videoSrc, type: "video/mp4" }],
+        sources: [{ src: videoSrc, type: "application/x-mpegURL" }],
       });
 
       player.ima({
