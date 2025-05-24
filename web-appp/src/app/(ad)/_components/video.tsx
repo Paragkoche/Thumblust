@@ -106,9 +106,61 @@ const VideoPlayer = ({ poster, url }: VideoPlayerProps) => {
         return;
       }
     };
+    let lastTap = 0;
+    let tapTimeout: ReturnType<typeof setTimeout> | null = null;
+    // @typescript-eslint/no-unused-vars
+    let touchStartX = 0;
+    console.log(touchStartX);
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+      }
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const screenWidth = window.innerWidth;
+      const now = new Date().getTime();
+
+      // Double Tap Detection
+      if (now - lastTap < 300) {
+        clearTimeout(tapTimeout!);
+        const tappedZone = touchEndX < screenWidth / 2 ? "left" : "right";
+
+        if (playerRef.current) {
+          const currentTime = playerRef.current.currentTime();
+          if (tappedZone === "left") {
+            playerRef.current.currentTime(Math.max(0, (currentTime ?? 0) - 10));
+          } else {
+            playerRef.current.currentTime((currentTime ?? 0) + 10);
+          }
+        }
+      } else {
+        tapTimeout = setTimeout(() => {
+          // Single tap (Play/Pause)
+          if (playerRef.current) {
+            if (playerRef.current.paused()) {
+              playerRef.current.play();
+            } else {
+              playerRef.current.pause();
+            }
+          }
+        }, 300);
+      }
+
+      lastTap = now;
+    };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
   }, [playerRef.current]);
   useEffect(() => {
     if (playerRef.current) {
