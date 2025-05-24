@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/preview.jpg", // Replace with your preview image
+        url: "/icon.png", // Replace with your preview image
         width: 1200,
         height: 630,
         alt: "Porn Search Engine - Coming Soon",
@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <BG>{children}</BG>
       </body>

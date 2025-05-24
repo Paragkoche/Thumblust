@@ -1,39 +1,40 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-"use client"; // for Next.js 13+ if using app directory
+"use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
+import "./style.css";
 
-import "videojs-contrib-ads";
-import "videojs-ima";
+type VideoPlayerProps = {
+  url?: string;
+  poster?: string;
+};
 
-const VideoPlayer = ({ videoSrc, vastTagUrl, poster }: any) => {
-  const videoRef = useRef<any | null>(null);
-  const playerRef = useRef<any | null>(null);
+const VideoPlayer = ({ poster, url }: VideoPlayerProps) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const playerRef = useRef<ReturnType<typeof videojs> | null>(null);
+  const [videoPlayOrPause, setVideoPlayOrPause] = React.useState(false);
 
   useEffect(() => {
-    if (!playerRef.current && videoRef.current) {
-      const player: any = videojs(videoRef.current, {
+    if (videoRef.current && !playerRef.current) {
+      playerRef.current = videojs(videoRef.current, {
         controls: true,
         autoplay: false,
         preload: "auto",
-        width: 640,
-        height: 360,
-        poster: poster,
-        sources: [{ src: videoSrc, type: "application/x-mpegURL" }],
+        poster: poster || "",
+        fluid: true, // Makes player responsive
+        controlBar: {
+          fullscreenToggle: true, // Ensures fullscreen button is included
+        },
+        sources: [
+          {
+            src:
+              url ||
+              "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+            type: "application/x-mpegURL",
+          },
+        ],
       });
-
-      player.ima({
-        adTagUrl: vastTagUrl,
-      });
-
-      player.ready(() => {
-        player.ima.initializeAdDisplayContainer();
-        player.play();
-      });
-
-      playerRef.current = player;
     }
 
     return () => {
@@ -42,11 +43,85 @@ const VideoPlayer = ({ videoSrc, vastTagUrl, poster }: any) => {
         playerRef.current = null;
       }
     };
-  }, [videoSrc, vastTagUrl]);
+  }, [url, poster]);
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      console.log("Key pressed:", e.code, e.code === "Space");
+
+      if (e.code === "Space") {
+        e.preventDefault(); // Prevent scrolling
+        if (playerRef.current) {
+          console.log(playerRef.current.paused());
+
+          setVideoPlayOrPause(playerRef.current.paused());
+        }
+        return;
+      }
+      if (e.code === "KeyF") {
+        e.preventDefault(); // Prevent default fullscreen behavior
+        if (playerRef.current) {
+          if (playerRef.current.isFullscreen()) {
+            playerRef.current.exitFullscreen();
+          } else {
+            playerRef.current.requestFullscreen();
+          }
+        }
+        return;
+      }
+      if (e.code === "KeyM") {
+        e.preventDefault(); // Prevent default mute behavior
+        if (playerRef.current) {
+          const isMuted = playerRef.current.muted();
+          playerRef.current.muted(!isMuted);
+        }
+        return;
+      }
+      if (e.code === "KeyR") {
+        e.preventDefault(); // Prevent default reload behavior
+        if (playerRef.current) {
+          playerRef.current.currentTime(0); // Reset video to start
+          playerRef.current.play();
+        }
+        return;
+      }
+      if (e.code === "KeyS") {
+        e.preventDefault(); // Prevent default stop behavior
+        if (playerRef.current) {
+          playerRef.current.pause();
+          playerRef.current.currentTime(0); // Reset video to start
+        }
+        return;
+      }
+      if (e.code == "ArrowLeft" || e.code == "ArrowRight") {
+        e.preventDefault(); // Prevent default seek behavior
+        if (playerRef.current) {
+          const currentTime = playerRef.current.currentTime();
+          const newTime =
+            e.code === "ArrowLeft"
+              ? (currentTime ?? 0) - 10
+              : (currentTime ?? 0) + 10;
+          playerRef.current.currentTime(Math.max(0, newTime)); // Ensure time doesn't go negative
+        }
+        return;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [playerRef.current]);
+  useEffect(() => {
+    if (playerRef.current) {
+      if (videoPlayOrPause) {
+        playerRef.current.play();
+      } else {
+        playerRef.current.pause();
+      }
+    }
+  }, [videoPlayOrPause]);
 
   return (
-    <div data-vjs-player>
-      <video ref={videoRef} className="video-js vjs-default-skin" />
+    <div data-vjs-player className="video-player-container">
+      <video ref={videoRef} className="video-js vjs-default-skin" playsInline />
     </div>
   );
 };
