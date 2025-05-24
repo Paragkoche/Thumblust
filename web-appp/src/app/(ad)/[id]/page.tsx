@@ -1,4 +1,5 @@
 import { getData } from "@/utils/data-fetch";
+import VideoPlayer from "../_components/video";
 //ok <>
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -16,12 +17,13 @@ export default async function Home(props: PageProps) {
   }
   return (
     <div className="w-screen h-screen flex justify-center items-center p-7">
-      <div
-        className="relative w-full max-w-4xl aspect-video"
-        dangerouslySetInnerHTML={{
-          __html: data?.html ?? "",
-        }}
-      ></div>
+      <VideoPlayer
+        videoSrc={
+          "https://sh9f.biggsupndfun.sbs/v4/mf/jci9ve/index-f1-v1-a1.txt"
+        }
+        poster=""
+        vastTagUrl=""
+      />
     </div>
   );
 }
