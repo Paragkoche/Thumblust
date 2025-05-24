@@ -22,10 +22,7 @@ export default async function Home(props: PageProps) {
         className="hidden sm:block"
         id="container-925ad1a9a8835a3ec790b1e830984d7a"
       ></div>
-      <VideoPlayer
-        url={"https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"}
-        poster={data.poster || ""}
-      />
+      <VideoPlayer url={data.url || ""} poster={data.poster || ""} />
       <div
         className="hidden sm:block"
         id="container-e475dbcc4cd3ffa8564ed226b71c8947"
