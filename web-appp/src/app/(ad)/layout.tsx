@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import BG from "@/components/bg";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,10 @@ export default function RootLayout({
         <BG>{children}</BG>
 
         {/* <Script type="text/javascript" src="/add.js"></Script> */}
+        <Script
+          type="text/javascript"
+          src="//pl26702585.profitableratecpm.com/07/5c/3d/075c3ded807656e7ab17f0a998d9d131.js"
+        ></Script>
       </body>
     </html>
   );
