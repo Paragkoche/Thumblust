@@ -1,5 +1,6 @@
 import { getData } from "@/utils/data-fetch";
 import VideoPlayer from "../_components/video";
+import Script from "next/script";
 //ok <>
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -16,7 +17,8 @@ export default async function Home(props: PageProps) {
     );
   }
   return (
-    <div className="w-screen h-screen flex justify-center items-center p-7">
+    <div className="w-screen h-fit flex justify-center items-center p-7 flex-col">
+      <div id="container-925ad1a9a8835a3ec790b1e830984d7a"></div>
       <VideoPlayer
         videoSrc={
           "https://sojg.desrocherswick.sbs/v4/5c/kdbbed/cf-master.txt"
@@ -25,6 +27,7 @@ export default async function Home(props: PageProps) {
         poster=""
         vastTagUrl=""
       />
+      <div id="container-e475dbcc4cd3ffa8564ed226b71c8947"></div>
     </div>
   );
 }
