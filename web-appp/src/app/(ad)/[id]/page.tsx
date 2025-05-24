@@ -17,7 +17,7 @@ export default async function Home(props: PageProps) {
     );
   }
   return (
-    <div className="w-screen h-fit flex justify-center items-center p-7 flex-col">
+    <div className="w-screen h-fit flex justify-center items-center p-0 sm:p-7 flex-col">
       <div
         className="hidden sm:block"
         id="container-925ad1a9a8835a3ec790b1e830984d7a"

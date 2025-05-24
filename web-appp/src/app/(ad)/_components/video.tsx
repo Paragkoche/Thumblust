@@ -22,6 +22,7 @@ const VideoPlayer = ({ poster, url }: VideoPlayerProps) => {
         autoplay: false,
         preload: "auto",
         poster: poster || "",
+        response: true,
         fluid: true, // Makes player responsive
         controlBar: {
           fullscreenToggle: true, // Ensures fullscreen button is included
@@ -120,7 +121,7 @@ const VideoPlayer = ({ poster, url }: VideoPlayerProps) => {
   }, [videoPlayOrPause]);
 
   return (
-    <div data-vjs-player className="video-player-container">
+    <div data-vjs-player>
       <video ref={videoRef} className="video-js vjs-default-skin" playsInline />
     </div>
   );
