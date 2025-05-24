@@ -54,10 +54,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="clckd" content="fe578bc72fb405d17517a36949ce4996" />
-        <meta name="referrer" content="no-referrer-when-downgrade" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

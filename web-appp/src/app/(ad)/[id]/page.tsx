@@ -11,11 +11,7 @@ export default async function Home(props: PageProps) {
   if (!data) {
     return (
       <div className="w-screen h-screen flex justify-center items-center">
-        <VideoPlayer
-          videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
-          poster="/poster.jpg"
-          vastTagUrl="https://s.magsrv.com/v1/vast.php?idzone=5620820" // Replace with your VAST URL
-        />
+        NO DATa
       </div>
     );
   }

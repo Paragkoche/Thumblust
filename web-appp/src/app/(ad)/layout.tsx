@@ -26,26 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <Script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></Script>
-        {/* <Script
-          type="text/javascript"
-          src="//pl26702585.profitableratecpm.com/07/5c/3d/075c3ded807656e7ab17f0a998d9d131.js"
-        ></Script> */}
-        <meta
-          name="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
-          content="8aee87e0941ed401ec6dcbd041ba46ac9b381396"
-        />
-        <Script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></Script>
-        <Script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></Script>
-        <meta name="referrer" content="no-referrer-when-downgrade" />
-      </head>
+      <head></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <BG>{children}</BG>
 
-        <Script type="text/javascript" src="/add.js"></Script>
+        {/* <Script type="text/javascript" src="/add.js"></Script> */}
       </body>
     </html>
   );
