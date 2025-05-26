@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getAllData } from "@/utils/data-fetch";
+const URL = "https://thumblust.com";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     {
-      url: "/",
+      url: URL + "/",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,
@@ -11,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...((await getAllData()).data ?? []).map(
       (item) =>
         ({
-          url: "/" + item.name,
+          url: URL + "/" + item.name,
           lastModified: new Date(item.created_at),
           changeFrequency: "daily",
           priority: 0.3,
