@@ -1,9 +1,5 @@
 "use server";
-import {
-  getAllPostsSortedByView,
-  getData,
-  incrementPostView,
-} from "@/utils/data-fetch";
+import { getAllPostsSortedByView, getData } from "@/utils/data-fetch";
 import VideoPlayer from "../_components/video";
 import VideoPost from "./_components/video-post";
 
