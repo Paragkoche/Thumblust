@@ -31,6 +31,10 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
+        <meta
+          name="juicyads-site-verification"
+          content="803170c7651a1514d43bff9e218b20c1"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

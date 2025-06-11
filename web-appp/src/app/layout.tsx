@@ -54,6 +54,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta
+          name="juicyads-site-verification"
+          content="803170c7651a1514d43bff9e218b20c1"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
