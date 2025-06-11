@@ -72,11 +72,11 @@ export default function RootLayout({
           src="//pl26678316.profitableratecpm.com/e475dbcc4cd3ffa8564ed226b71c8947/invoke.js"
         ></Script>
 
-        <Script
+        <script
           type="text/javascript"
           data-cfasync="false"
           async
-        >{`(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1093349});`}</Script>
+        >{`(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1093349});`}</script>
       </body>
     </html>
   );
