@@ -35,6 +35,12 @@ export default function RootLayout({
           name="juicyads-site-verification"
           content="803170c7651a1514d43bff9e218b20c1"
         />
+        <Script
+          type="text/javascript"
+          data-cfasync="false"
+          async
+          src="https://poweredby.jads.co/js/jads.js"
+        ></Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -65,6 +71,12 @@ export default function RootLayout({
           data-cfasync="false"
           src="//pl26678316.profitableratecpm.com/e475dbcc4cd3ffa8564ed226b71c8947/invoke.js"
         ></Script>
+
+        <Script
+          type="text/javascript"
+          data-cfasync="false"
+          async
+        >{`(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1093349});`}</Script>
       </body>
     </html>
   );
