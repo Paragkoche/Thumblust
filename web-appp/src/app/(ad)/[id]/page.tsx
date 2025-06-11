@@ -43,8 +43,9 @@ export default async function Home(props: PageProps) {
             <VideoPost key={d.id} data={d} notShow={data.id} />
           ))}
         </div>
+        <ins id="1093349" data-width="308" data-height="286"></ins>
       </div>
-      <ins id="1093349" data-width="308" data-height="286"></ins>
+
       {/* <div id="container-e475dbcc4cd3ffa8564ed226b71c8947"></div> */}
     </>
   );
