@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-/* //makyoe */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -52,16 +52,15 @@
   font-display: swap;
 }
 
-
 :root {
   --radius: 0.625rem;
-  --background: #FFEFC2;
+  --background: #d5c9a6;
   --foreground: #000000;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #FFEFC2;
+  --primary: #d5c9a6;
   --primary-foreground: #000000;
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
