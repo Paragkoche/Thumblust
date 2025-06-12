@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Thumblust | %s",
+  title: "Thumblust ",
   description:
     "A smarter, privacy-focused way to explore adult content. Launching soon!",
 };
