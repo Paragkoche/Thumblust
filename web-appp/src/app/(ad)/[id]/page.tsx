@@ -2,6 +2,8 @@
 import { getAllPostsSortedByView, getData } from "@/utils/data-fetch";
 import VideoPlayer from "../_components/video";
 import VideoPost from "./_components/video-post";
+import Billboard from "@/components/ads/juicy_ads/banner/billboard";
+import VideoAd from "@/components/ads/juicy_ads/specialFormats/video";
 
 //ok <>
 interface PageProps {
@@ -14,39 +16,48 @@ export default async function Home(props: PageProps) {
 
   if (!data) {
     return (
-      <div className="w-screen h-screen flex justify-center items-center">
+      <div className="w-screen h-[calc(100vh-12rem)] flex justify-center items-center">
         NO DATa
       </div>
     );
   }
 
   const { data: db } = await getAllPostsSortedByView();
+  const modifiedDb: any[] = [...(db || [])];
+  const randomIndex = Math.floor(Math.random() * (modifiedDb.length + 1));
+  modifiedDb.splice(randomIndex, 0, {
+    type: "ad",
+  });
   return (
-    <>
-      {/* <div id="container-925ad1a9a8835a3ec790b1e830984d7a"></div> */}
-      <div className="w-screen h-fit flex justify-center  gap-2 p-0 sm:p-7 flex-col border-2 my-10">
-        <h1>
-          Video here: <span className="font-semibold">{data.name}</span> 👇👇
-        </h1>
-        {/* <div
-          className="hidden sm:block"
-          id="container-925ad1a9a8835a3ec790b1e830984d7a"
-        ></div> */}
-        <VideoPlayer url={data.url || undefined} poster={data.poster || ""} />
-        {/* <div
-          className="hidden sm:block"
-          id="container-e475dbcc4cd3ffa8564ed226b71c8947"
-        ></div> */}
-        <div className="flex flex-col gap-2.5">
-          <h1>More Videos</h1>
-          {db?.map((d) => (
-            <VideoPost key={d.id} data={d} notShow={data.id} />
-          ))}
-        </div>
-        <ins id="1093349" data-width="308" data-height="286"></ins>
+    <main className="w-full h-auto px-5 lg:px-[150px] py-2.5">
+      <div className="py-2.5">
+        <Billboard />
       </div>
+      <div className="flex flex-col lg:flex-row lg:gap-3">
+        <div className="w-full lg:w-8/12  flex gap-1.5 flex-col">
+          <VideoPlayer
+            poster={data.poster || undefined}
+            url={data.url || undefined}
+          />
+          <div className="border-b border-b-black py-2.5 px-2">{data.name}</div>
+          <div className="my-2.5">
+            <Billboard />
+          </div>
+        </div>
 
-      {/* <div id="container-e475dbcc4cd3ffa8564ed226b71c8947"></div> */}
-    </>
+        <div className="mt-2.5 lg:w-4/12">
+          <h1>More videos</h1>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+            {modifiedDb.map((v, i) =>
+              v.type === "ad" ? (
+                <VideoAd key={`ad-${i}`} />
+              ) : (
+                <VideoPost data={v} notShow={data.id} key={v.id || i} />
+              )
+            )}
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }

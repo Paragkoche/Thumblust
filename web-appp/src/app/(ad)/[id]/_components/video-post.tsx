@@ -19,12 +19,16 @@ const VideoPost = ({
 
   if (data.id == notShow) return null;
   return (
-    <Link href={"/" + data.name}>
-      <div className="flex flex-col">
-        <img className="aspect-square w-full" src={data.poster ?? ""} />
-        <p>{data.name}</p>
-      </div>
-    </Link>
+    <div key={data.id} className="w-full  border border-black p-3.5">
+      <Link href={`/${data.name}`} className="overflow-hidden">
+        <img
+          alt={data.name}
+          src={data.poster!}
+          className="w-full rounded-2xl select-none"
+        />
+      </Link>
+      <p className="py-2.5">{data.name}</p>
+    </div>
   );
 };
 
