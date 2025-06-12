@@ -5,17 +5,11 @@ import VideoPost from "./_components/video-post";
 import Billboard from "@/components/ads/juicy_ads/banner/billboard";
 import VideoAd from "@/components/ads/juicy_ads/specialFormats/video";
 import { Tables } from "@/types/database.types";
-import { Metadata } from "next";
 
 //ok <>
 interface PageProps {
   params: Promise<{ id: string }>;
 }
-export const metadata: Metadata = {
-  title: "Thumblust",
-  description:
-    "A smarter, privacy-focused way to explore adult content. Launching soon!",
-};
 type PostOrAd = Tables<"POST"> | { type: string };
 export default async function Home(props: PageProps) {
   const { id } = await props.params;
