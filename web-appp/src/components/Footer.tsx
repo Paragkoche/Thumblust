@@ -1,4 +1,5 @@
 import { Instagram } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -6,9 +7,13 @@ const Footer = () => {
       <div className="text-sm">
         Thumblust.com &copy; 2025 - {new Date().getFullYear() + 1}
       </div>
-      <div>
+      <Link
+        href={"https://instagram.com/thumblust"}
+        target={`_${crypto.randomUUID()}`}
+        className="cursor-pointer"
+      >
         <Instagram size={16} />
-      </div>
+      </Link>
     </footer>
   );
 };
