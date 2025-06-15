@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import BG from "@/components/bg";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,6 +71,17 @@ export default function RootLayout({
       >
         <BG>{children}</BG>
       </body>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-YS2FW6FBTY"
+      ></Script>
+      <script>
+        {`  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YS2FW6FBTY');`}
+      </script>
     </html>
   );
 }
