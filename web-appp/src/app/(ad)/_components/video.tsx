@@ -153,13 +153,16 @@ const VideoPlayer = ({ poster, url }: VideoPlayerProps) => {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    videoRef.current!.addEventListener("touchstart", handleTouchStart);
-    videoRef.current!.addEventListener("touchend", handleTouchEnd);
-
+    if (videoRef.current) {
+      videoRef.current!.addEventListener("touchstart", handleTouchStart);
+      videoRef.current!.addEventListener("touchend", handleTouchEnd);
+    }
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      videoRef.current!.removeEventListener("touchstart", handleTouchStart);
-      videoRef.current!.removeEventListener("touchend", handleTouchEnd);
+      if (videoRef.current) {
+        videoRef.current!.removeEventListener("touchstart", handleTouchStart);
+        videoRef.current!.removeEventListener("touchend", handleTouchEnd);
+      }
     };
   }, [playerRef.current, videoRef.current]);
   useEffect(() => {
