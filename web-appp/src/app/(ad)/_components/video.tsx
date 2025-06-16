@@ -136,19 +136,18 @@ const VideoPlayer = ({ poster, url }: VideoPlayerProps) => {
             playerRef.current.currentTime((currentTime ?? 0) + 10);
           }
         }
+      } else {
+        tapTimeout = setTimeout(() => {
+          // Single tap (Play/Pause)
+          // if (playerRef.current) {
+          //   if (playerRef.current.paused()) {
+          //     playerRef.current.play();
+          //   } else {
+          //     playerRef.current.pause();
+          //   }
+          // }
+        }, 300);
       }
-      // else {
-      //   tapTimeout = setTimeout(() => {
-      //     // Single tap (Play/Pause)
-      //     if (playerRef.current) {
-      //       if (playerRef.current.paused()) {
-      //         playerRef.current.play();
-      //       } else {
-      //         playerRef.current.pause();
-      //       }
-      //     }
-      //   }, 300);
-      // }
 
       lastTap = now;
     };
